@@ -1,14 +1,15 @@
 import PropTypes from 'prop-types';
-import { FriendsListItem } from 'components/FriendsListItem/FriendsListItem';
+import { FriendListItem } from 'components/FriendListItem/FriendListItem';
+import styles from './FriendList.module.scss'
 
 export const FriendList = ({ friends }) => {
-
+  const { friend__list } = styles
   return (
     <section>
-      <ul>
+      <ul className={friend__list}>
         {friends.length > 0 &&
           friends.map(({ avatar, name, isOnline, id }) => (
-            <FriendsListItem
+            <FriendListItem
               avatar={avatar}
               name={name}
               isOnline={isOnline}
