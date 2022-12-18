@@ -33,15 +33,15 @@ export const Profile = ({ username, tag, location, avatar, stats }) => {
         <ul className={profile__data}>
             <li className={profile__data_item}>
               <span className={profile__data_label}>Followers</span>
-              <span className={profile__data_quantity}>{followers ? followers : 0}</span>
+              <span className={profile__data_quantity}>{followers}</span>
             </li>
             <li className={profile__data_item}>
             <span className={profile__data_label}>Views</span>
-            <span className={profile__data_quantity}>{views ? views : 0}</span>
+            <span className={profile__data_quantity}>{views}</span>
             </li>
           <li className={profile__data_item}>
             <span className={profile__data_label}>Likes</span>
-            <span className={profile__data_quantity}>{likes ? likes : 0}</span>
+            <span className={profile__data_quantity}>{likes}</span>
             </li>
         </ul>
 
@@ -55,5 +55,9 @@ Profile.propTypes = {
   tag: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
   avatar: PropTypes.string.isRequired,
-  stats: PropTypes.object.isRequired,
+  stats: PropTypes.exact({
+    followers: PropTypes.number.isRequired,
+    views: PropTypes.number.isRequired,
+    likes: PropTypes.number.isRequired,
+  }),
 };
